@@ -91,7 +91,7 @@
 
 
 <div id="slider-value"></div>
-<div id="slider-top" style='position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Monthly Property Tax for Loan Amount: $500,000</div>
+<div id="slider-top" style='position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Monthly Property Tax for Estimated Home Value: $500,000</div>
 <div id='bottom-text' style='position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Use Slider, re-select area to update</div>
 <div id='info' style='position: absolute; top: 5px; left: 10px; background-color: white; padding: 10px; border-radius: 5px;'>Select an Area & Use a Slider</div>
 <button class="back-button" onclick="goBack()">Back</button>
@@ -134,7 +134,7 @@
           sliderValueDisplay.textContent = sliderValue.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
           // Update the element at the top with the slider value and static text
-          const monthlyCostText = 'Monthly Property Tax for Loan Amount: ';
+          const monthlyCostText = 'Monthly Property Tax for Estimated Home Value: ';
           const sliderValueTop = document.getElementById('slider-top');
           //const monthlyCostText2 = '(Homestead)';
           
