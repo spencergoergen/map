@@ -93,7 +93,7 @@
 <div id="slider-value"></div>
 <div id="slider-top" style='position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Monthly Property Tax for Loan Amount: $500,000</div>
 <div id='bottom-text' style='position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>Use Slider, re-select area to update</div>
-<div id='info' style='position: absolute; top: 5px; left: 10px; background-color: white; padding: 10px; border-radius: 5px;'>Select a County & Use a Slider</div>
+<div id='info' style='position: absolute; top: 5px; left: 10px; background-color: white; padding: 10px; border-radius: 5px;'>Select an Area & Use a Slider</div>
 <button class="back-button" onclick="goBack()">Back</button>
 
 <script>
@@ -304,13 +304,16 @@
                 });
                 const sliderValue = parseFloat(document.getElementById('real-slider').value);
                 cost = ((sliderValue / 2000) * rate) / 12;
+                yearly = cost * 12;
                 cost = Math.floor(cost);
+                yearly = Math.floor(yearly);
 
             }
 
             infoDiv.innerHTML += `<strong><span style="color: red;">School:</span></strong> ${schoolFeatures[0].properties.NAME}<br>`;
             infoDiv.innerHTML += `<strong>Rate:</strong> ${rate}<br>`;
             infoDiv.innerHTML += `<strong style="font-size: 17px;">Monthly Property Tax: </strong>$<span style="font-size: 17px;">${cost}</span><br>`;
+            infoDiv.innerHTML += `<strong style="font-size: 17px;">Yearly Property Tax:</strong>$<span style="font-size: 17px;">${yearly}</span><br>`;
           }
 
           map.setPaintProperty('townships-fill-layer', 'fill-opacity', [
