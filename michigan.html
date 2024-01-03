@@ -13,11 +13,11 @@
     #map { position: absolute; top: 0; bottom: 0px; width: 100%; }
     #slider-container { 
       position: absolute; 
-      bottom: 10px; 
+      bottom: 25px; 
       left: 50%; 
       transform: translateX(-50%);
-      width: 60%;
-      padding: 10px; 
+      width: 75%;
+      padding: 5px; 
       background-color: #fff; 
       border-radius: 5px;
       display: flex;
@@ -27,7 +27,7 @@
     }
 
     #real-slider { 
-      width: calc(100% - 60px); /* Adjusted width to fit labels */
+      width: calc(100%); /* Adjusted width to fit labels */
     }
 
     #slider-value {
@@ -79,14 +79,14 @@
 <div id='map'></div>
 
 <div id="slider-container">
-  <input type="range" min="0" max="1000000" step="5000" id="real-slider">
+  <input type="range" min="0" max="2000000" step="5000" id="real-slider">
 </div>
 
 
 <div id="slider-value"></div>
-<div id="slider-top" style='position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Monthly Property Tax for Estimated Home Value: $500,000</div>
-<div id='bottom-text' style='position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Use Slider, re-select area to update</div>
-<div id='info' style='position: absolute; top: 0.5px; left: 0.5px; background-color: white; padding: 10px; border-radius: 3px;'>Select an Area & Use a Slider</div>
+<div id="slider-top" style='position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); background-color: white; padding: 5px; border-radius: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px;'>Estimated Home Value: $500,000</div>
+<div id='bottom-text' style='position: absolute; bottom: 0.5px; left: 50%; transform: translateX(-50%); background-color: white; padding: 5px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Use slider; Re-select area to update</div>
+<div id='info' style='position: absolute; top: 0.5px; left: 0.5px; background-color: white; padding: 10px; border-radius: 3px;'>Select an Area & Use Slider</div>
 <!--<button class="back-button" onclick="goBack()">Back</button>-->
 
 <script>
@@ -127,7 +127,7 @@
           sliderValueDisplay.textContent = sliderValue.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
           // Update the element at the top with the slider value and static text
-          const monthlyCostText = 'Monthly Property Tax for Estimated Home Value: ';
+          const monthlyCostText = 'Estimated Home Value: ';
           const sliderValueTop = document.getElementById('slider-top');
           //const monthlyCostText2 = '(Homestead)';
           
@@ -246,7 +246,7 @@
           let clickedSchool = ''
           //infoDiv.innerHTML += `<strong>Monthly Property Tax For Loan Amount: </strong> ${sliderValue.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
           infoDiv.innerHTML += `<strong><span style="color: purple;">Selected Area</span></strong><br>`;
-          bottomText.innerHTML += `Use Slider, re-select area to update<br>`;
+          bottomText.innerHTML += `Use slider; Re-select area to updatee<br>`;
 
           if (countyFeatures.length > 0) {
             clickedCounty = countyFeatures[0].properties.NAME_2; // Extract county name from the GeoJSON property
