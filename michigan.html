@@ -78,13 +78,6 @@
 
 <div id='map'></div>
 
-<!-- <div style='position: absolute; bottom: 80px; right: 20px;'>
-  <a href="graph.html">
-    <button>Switch to Graph</button>
-  </a>
-</div>
--->
-
 <div id="slider-container">
   <input type="range" min="0" max="1000000" step="5000" id="real-slider">
 </div>
@@ -93,8 +86,8 @@
 <div id="slider-value"></div>
 <div id="slider-top" style='position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Monthly Property Tax for Estimated Home Value: $500,000</div>
 <div id='bottom-text' style='position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); background-color: white; padding: 10px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Use Slider, re-select area to update</div>
-<div id='info' style='position: absolute; top: 5px; left: 10px; background-color: white; padding: 10px; border-radius: 5px;'>Select an Area & Use a Slider</div>
-<button class="back-button" onclick="goBack()">Back</button>
+<div id='info' style='position: absolute; top: 0.5px; left: 0.5px; background-color: white; padding: 10px; border-radius: 3px;'>Select an Area & Use a Slider</div>
+<!--<button class="back-button" onclick="goBack()">Back</button>-->
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2dvZXJnZW4iLCJhIjoiY2xxOGh3NXNmMWRpbDJybGt0M3dlaWhuaCJ9._cf-BoBhMT2C5-sHnyHqeQ';
@@ -311,9 +304,10 @@
             }
 
             infoDiv.innerHTML += `<strong><span style="color: red;">School:</span></strong> ${schoolFeatures[0].properties.NAME}<br>`;
-            infoDiv.innerHTML += `<strong>Rate:</strong> ${rate}<br>`;
-            infoDiv.innerHTML += `<strong style="font-size: 17px;">Monthly Property Tax: </strong>$<span style="font-size: 17px;">${cost}</span><br>`;
-            infoDiv.innerHTML += `<strong style="font-size: 17px;">Yearly Property Tax:</strong>$<span style="font-size: 17px;">${yearly}</span><br>`;
+            //infoDiv.innerHTML += `<strong>Rate:</strong> ${rate}<br>`;
+            infoDiv.innerHTML += `<strong style="font-size: 17px;">Property Tax: </strong>$<span style="font-size: 17px;">${cost} monthly | $${yearly} yearly</span><br>`;
+            //infoDiv.innerHTML += `<strong style="font-size: 17px;">Yearly Property Tax:</strong>$<span style="font-size: 17px;">${yearly}</span><br>`;
+            infoDiv.innerHTML += `<span style="font-size: 12px;">*Only an Estimate based on posted 2022 Michigan Millage Rates</span>`;
           }
 
           map.setPaintProperty('townships-fill-layer', 'fill-opacity', [
