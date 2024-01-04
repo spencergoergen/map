@@ -124,9 +124,6 @@
 
         slider.addEventListener('input', (e) => {
           const sliderValue = parseFloat(e.target.value);
-          // Update slider value display
-          sliderValueDisplay.textContent = sliderValue.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-
           // Update the element at the top with the slider value and static text
           const monthlyCostText = 'Estimated Home Value: ';
           const sliderValueTop = document.getElementById('slider-top');
