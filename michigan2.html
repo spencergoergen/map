@@ -26,7 +26,107 @@
       align-items: center;
       font-size: 12px;
     }
+    .info {
+        padding: 8px;
+    }
+    .white-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 115px;
+    width: 100%;
+    background-color: white;
+    z-index: -1; /* Set a higher z-index to ensure it's above other elements */
+    }
 
+    .white-box-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 500px;
+    background-color: white;
+    z-index: -1; /* Set a higher z-index to ensure it's above other elements */
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      top: 60px; /* Apply top position */
+      padding: 10px;
+      background-color: #f0f0f0;
+      z-index: 1;
+    }
+
+    /* Style for the buttons */
+    .button {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Style for the dropdown button */
+    .dropdown {
+      position: relative;
+    }
+
+    /* Style for the dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Desktop Mode */
+    @media only screen and (min-width: 900px) {
+      .white-box-big {
+        display: block; /* Show the white box on desktop */
+      }
+      .info {
+        display: none;
+    }
+    .white-box-side {
+        display: block; /* Show the white box on desktop */
+      }
+    }
+
+    /* Half-Screen mode (1280px to 770px) */
+    @media only screen and (max-width: 900px) and (min-width: 780px) {
+        .white-box {
+        display: block; /* Show the white box on desktop */
+      }
+      .white-box-side {
+        display: none; /* Show the white box on desktop */
+      }
+      .info {
+        display: none;
+    }
+    }
+
+    /* Mobile mode (less than 770px) */
+    @media only screen and (max-width: 780px) {
+      .white-box {
+        display: none; /* Hide the white box on mobile devices */
+      }
+      .button-row {
+        display: none; /* Hide the white box on mobile devices */
+      }
+      .info {
+        display: block;
+    }
+    .white-box-side {
+        display: none; /* Show the white box on desktop */
+      }
+    }
     #real-slider { 
       width: calc(100%); /* Adjusted width to fit labels */
     }
@@ -35,6 +135,12 @@
       text-align: center;
       font-weight: bold;
       margin-top: 10px;
+    }
+
+    .search-input {
+    display: block;
+    width: 155px;
+    align-items: center;
     }
 
     .hidden {
@@ -77,20 +183,134 @@
 </head>
 <body>
 
+  <!-- Button Row -->
+  <div class="button-row">
+
+    <!-- Search Input Field -->
+    <div class="search-input" id="searchInput">
+        <input type="text" id="searchField" placeholder="Type here...">
+    </div>
+    <!-- Type Dropdown Button -->
+    <div class="dropdown">
+      <button class="button">Type v</button>
+      <div class="dropdown-content">
+        <!-- Dropdown content for Type -->
+        <div><a href="#">Option 1</a></div>
+        <div><a href="#">Option 2</a></div>
+        <div><a href="#">Option 3</a></div>
+      </div>
+    </div>
+
+    <!-- Price Dropdown Button -->
+    <div class="dropdown">
+      <button class="button">Price v</button>
+      <div class="dropdown-content">
+        <!-- Dropdown content for Price -->
+        <div><a href="#">Option 1</a></div>
+        <div><a href="#">Option 2</a></div>
+        <div><a href="#">Option 3</a></div>
+      </div>
+    </div>
+
+      <!-- Price Dropdown Button -->
+      <div class="dropdown">
+        <button class="button">Downpayment v</button>
+        <div class="dropdown-content">
+          <!-- Dropdown content for Price -->
+          <div><a href="#">Option 1</a></div>
+          <div><a href="#">Option 2</a></div>
+          <div><a href="#">Option 3</a></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="button">School District v</button>
+        <div class="dropdown-content">
+          <!-- Dropdown content for Price -->
+          <div><a href="#">Option 1</a></div>
+          <div><a href="#">Option 2</a></div>
+          <div><a href="#">Option 3</a></div>
+        </div>
+    </div>
+
+        <div class="dropdown">
+            <button class="button">Loan v</button>
+            <div class="dropdown-content">
+              <!-- Dropdown content for Price -->
+              <div><a href="#">Option 1</a></div>
+              <div><a href="#">Option 2</a></div>
+              <div><a href="#">Option 3</a></div>
+            </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="button">Interest Rate v</button>
+        <div class="dropdown-content">
+          <!-- Dropdown content for Price -->
+          <div><a href="#">Option 1</a></div>
+          <div><a href="#">Option 2</a></div>
+          <div><a href="#">Option 3</a></div>
+        </div>
+  </div>
+    </div>
+
 <div id='map'></div>
 <div class="white-box"></div>
+<div class="white-box-side"></div>
 <div id="slider-container">
   <input type="range" min="0" max="2000000" step="5000" id="real-slider">
 </div>
 
 
 <div id="slider-value"></div>
-<div id="slider-top" style='position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); background-color: white; padding: 5px; border-radius: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px;'>Estimated Home Value: $1,000,000</div>
+<div id="slider-top" style='position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); background-color: white; padding: 5px; border-radius: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px;'>Estimated Home Value: $500,000</div>
 <div id='bottom-text' style='position: absolute; bottom: 0.5px; left: 50%; transform: translateX(-50%); background-color: white; padding: 5px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;'>Use slider; Re-select area to update</div>
-<div id='info' style='position: absolute; top: 0.5px; left: 0.5px; background-color: white; padding: 10px; border-radius: 3px;'>Select an Area & Use Slider</div>
+<div id='info' class='info' style='position: absolute; top: 0.5px; left: 0.5px; background-color: white; padding: 10px; border-radius: 3px;'>Select an Area & Use Slider</div>
 <!--<button class="back-button" onclick="goBack()">Back</button>-->
 
 <script>
+
+    // Get references to the search button and search input field
+const searchInput = document.getElementById('searchInput');
+const searchField = document.getElementById('searchField');
+
+// Event listener for typing in the search field
+searchField.addEventListener('input', () => {
+  // Handle input changes, perform search operations, etc.
+  // You can access the search input value using: searchField.value
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    // Add click event listener to each dropdown
+    dropdowns.forEach((dropdown) => {
+      const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+      dropdown.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the document
+
+        // Toggle the display of the dropdown content
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+
+        // Hide other dropdowns' content if clicked
+        dropdowns.forEach((otherDropdown) => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.querySelector('.dropdown-content').style.display = 'none';
+          }
+        });
+      });
+
+      // Close the dropdown when clicking outside of it
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdownContent.style.display = 'none';
+        }
+      });
+    });
+  });
+
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2dvZXJnZW4iLCJhIjoiY2xxOGh3NXNmMWRpbDJybGt0M3dlaWhuaCJ9._cf-BoBhMT2C5-sHnyHqeQ';
   const map = new mapboxgl.Map({
     container: 'map',
